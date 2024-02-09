@@ -1,0 +1,126 @@
+
+let btn = document.getElementById("btn");
+let img = document.getElementById("img");
+let h1 = document.querySelector("h1");
+btn.onclick = function(){
+    let username = document.getElementById("username").value.toLowerCase().trim();
+    let password = document.getElementById("password").value.toLowerCase().trim();
+    if(username == "wiwi" && password != "mama" ){
+        let loggedPass = false
+        let maxAttempts = 6
+        let attempts = 0
+        while(attempts < maxAttempts){
+            password = prompt("Write your password");
+            attempts++
+            if(password == "mama"){
+                loggedPass = true;
+                break;
+            }
+        }
+        if(loggedPass){
+            img.style.display = "block"
+        }
+        else{
+            btn.style.display = "none"
+            h1.style.display = "block"
+            alert("WROOOONG!!!!")
+        }
+    }
+    else if (username !== "wiwi" && password === "mama") {
+        let maxAttempts = 6;
+        let attempts = 0;
+        let loggedName = false;
+        while (attempts < maxAttempts) {
+            username = prompt("Write your Username").toLowerCase().trim();
+            attempts++;
+            if (username === "wiwi") {
+                loggedName = true;
+                break;
+            }
+        }
+        if (loggedName) {
+            img.style.display = "block";
+        } else {
+            h1.style.display = "block"
+            btn.style.display = "none"
+        }
+    }
+     //breake    
+    else if (username == "wiwi" && password == "mama"){
+        img.style.display = "block"
+    }
+    else{
+        loggedName = false;
+        loggedPass = false;
+        let maxAttempts = 6;
+        let attempts = 0;
+        while(attempts < maxAttempts){
+            username = prompt("Write your Username").toLowerCase().trim();
+            password = prompt("Write your Password").toLowerCase().trim();
+            attempts++;
+            if(username == "wiwi" && password == "mama"){
+                loggedName = true;
+                loggedPass = true;
+                break;
+            }
+            else if (username == "wiwi" && password != "mama"){
+                loggedName = true
+                loggedPass = false
+                break;
+            }
+            else if (username != "wiwi" && password == "mama"){
+                loggedName = false
+                loggedPass = true
+                break;
+            }
+        }
+        if(loggedName == true && loggedPass == true){
+           img.style.display = "block" 
+        }
+        else if(loggedName == true && loggedPass == false){
+            let loggedPass = false
+            let maxAttempts = 6
+            let attempts = 0
+            while(attempts < maxAttempts){
+                password = prompt("Write your password").toLowerCase().trim();
+                attempts++
+                if(password == "mama"){
+                    loggedPass = true;
+                    break;
+                }
+            }
+            if(loggedPass){
+                img.style.display = "block"
+            }
+            else{
+                btn.style.display = "none"
+                h1.style.display = "block"
+                alert("WROOOONG!!!!")
+            }
+        }
+        else if(loggedName == false && loggedPass == true){
+            let maxAttempts = 6;
+            let attempts = 0;
+            let loggedName = false;
+            while (attempts < maxAttempts) {
+                username = prompt("Write your Username").toLowerCase().trim();
+                attempts++;
+        
+                if (username === "wiwi") {
+                    loggedName = true;
+                    break;
+                }
+            }
+            if (loggedName) {
+                img.style.display = "block";
+            } else {
+                h1.style.display = "block"
+                btn.style.display = "none"
+            }
+        }
+        else{
+            h1.style.display = "block"
+            btn.style.display = "none"
+        }
+    }
+}
